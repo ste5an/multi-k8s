@@ -1,0 +1,23 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefenitions": [
+        {
+            "name": "client",
+            "image": "ste5an/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "ste5an/multi-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "ste5an/multi-worker",
+            "hostname": "worker",
+            "essential": false
+        }
+    ]
+}
