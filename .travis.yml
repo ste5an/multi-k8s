@@ -1,0 +1,23 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t ste5an/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true ste5an/react-test npm run test
+
+after_success:
+  - docker build -t ste5an/multi-client ./client
+  - docker build -t ste5an/multi-nginx ./nginx
+  - docker build -t ste5an/multi-server ./server
+  - docker build -t ste5an/multi-worker ./worker
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  - docker push ste5an/multi-client
+  - docker push ste5an/multi-nginx
+  - docker push ste5an/multi-server
+  - docker push ste5an/multi-worker
