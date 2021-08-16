@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: client
-      image: stephengrider/multi-client
+      image: ste5an/multi-client
       ports:
         - containerPort: 3000
