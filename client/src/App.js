@@ -17,7 +17,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React 3
+            My change to develop branch
           </a>
           <Link to="/">Home</Link>
           <Link to="/otherpage">Other Page</Link>
